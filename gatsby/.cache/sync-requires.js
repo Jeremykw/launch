@@ -6,11 +6,9 @@ const preferDefault = m => (m && m.default) || m
 
 exports.components = {
   "component---cache-dev-404-page-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/.cache/dev-404-page.js"))),
-  "component---src-pages-404-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/404.js"))),
-  "component---src-pages-beers-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/beers.js"))),
+  "component---src-pages-about-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/about.js"))),
+  "component---src-pages-contact-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/contact.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/index.js"))),
-  "component---src-pages-orders-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/orders.js"))),
-  "component---src-pages-pizzas-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/pizzas.js"))),
-  "component---src-pages-slicemasters-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/slicemasters.js")))
+  "component---src-pages-portfolio-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/portfolio.js")))
 }
 

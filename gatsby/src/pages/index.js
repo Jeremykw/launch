@@ -1,10 +1,10 @@
-import React from 'react';
-import Nav from '../components/Nav';
+import React, { Component } from 'react';
+import LayoutHome from '../components/LayoutHome';
 
-export default function HomePage() {
-  return (
-    <>
-      <p>Hey! I'm the home EEEE page</p>
-    </>
-  );
+class Home extends Component {
+  render() {
+    return <LayoutHome />;
+  }
 }
+
+export default Home;
