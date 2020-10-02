@@ -18,7 +18,7 @@ const CardBox = styled.div`
   overflow: hidden;
 `;
 
-const Image = styled.div`
+const Image = styled.img`
   grid-area: image;
   background-color: var(--blue);
   height: 75px;
@@ -50,17 +50,12 @@ const Text = styled.div`
   grid-area: text;
   font-size: 1.25rem;
 `;
-function truncateCaption(caption) {
-  // if (!caption || type of caption !=== 'string') return ''
-  // if (caption.length <)
-  return caption;
-}
 
 export default function Card({ post }) {
-  console.log(post);
+  console.log({ post });
   return (
     <CardBox>
-      <Image />
+      <Image src={post.mainImage.asset.fixed.src} alt={post.title} />
       <Title>
         <LinesEllipsis
           text={post.title}
@@ -76,7 +71,7 @@ export default function Card({ post }) {
           maxLine="2"
           ellipsis=""
           trimRight
-          basedOn="words"
+          basedOn="letters"
         />
       </Tagline>
       <Text>

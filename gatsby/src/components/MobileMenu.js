@@ -42,7 +42,7 @@ const Hamburger = styled.div`
     width: 100%;
     border: none;
     outline: none;
-    z-index: 2;
+    z-index: 11;
   }
   .close.hide-menu {
     visibility: hidden;
@@ -56,7 +56,7 @@ const Menu = styled.div`
   width: 40vw;
   height: 100vh;
   padding: 90px 10px;
-  z-index: 1;
+  z-index: 10;
   transition: opacity 0.5s ease;
 
   &.show-menu {

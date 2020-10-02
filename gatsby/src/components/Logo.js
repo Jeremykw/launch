@@ -91,7 +91,7 @@ const Tagline = styled.div`
   align-self: center;
   max-width: 900px;
   font-size: 4rem;
-  z-index: 10;
+  z-index: 9;
   & ul {
     list-style-type: none;
     padding: 0;

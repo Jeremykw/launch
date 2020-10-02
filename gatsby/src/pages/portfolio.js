@@ -49,6 +49,13 @@ export const query = graphql`
         id
         caption
         tagLine
+        mainImage {
+          asset {
+            fixed(height: 75, width: 75) {
+              ...GatsbySanityImageFixed
+            }
+          }
+        }
       }
     }
   }
