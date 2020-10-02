@@ -29,7 +29,6 @@ const LogoContainer = styled.div`
   }
 `;
 export default function Header(props) {
-  console.log('headProps = ', props);
   return (
     <HeadContainer>
       <LogoContainer logo={props.logo}>

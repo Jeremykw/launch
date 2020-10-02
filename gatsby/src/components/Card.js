@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const CardBox = styled.div`
   display: grid;
@@ -13,13 +14,13 @@ const CardBox = styled.div`
   background-color: var(--white);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   padding: 10px;
+  gap: 10px;
   overflow: hidden;
 `;
 
 const Image = styled.div`
   grid-area: image;
   background-color: var(--blue);
-  /* margin-right: 1rem; */
   height: 75px;
   width: 75px;
 `;
@@ -27,37 +28,65 @@ const Image = styled.div`
 const Title = styled.div`
   grid-area: title;
   align-self: start;
-  padding: 0;
   padding-left: 1rem;
-  margin: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  line-clamp: 2;
 `;
 const Tagline = styled.div`
   display: grid;
-  align-self: flex-end;
+  align-self: end;
   grid-area: tagline;
   font-size: 1.2rem;
   color: var(--brown);
   padding-left: 1rem;
+  max-lines: 1;
 `;
 const Text = styled.div`
   display: block;
-  height: 60px;
+  height: 50px;
+  margin-bottom: 10px;
   padding-top: 1rem;
+  padding-bottom: 1rem;
   grid-area: text;
   font-size: 1.25rem;
-  overflow: hidden;
 `;
-export default function Card(props) {
-  console.log(props);
+function truncateCaption(caption) {
+  // if (!caption || type of caption !=== 'string') return ''
+  // if (caption.length <)
+  return caption;
+}
+
+export default function Card({ post }) {
+  console.log(post);
   return (
     <CardBox>
       <Image />
-      <Title>{props.title}</Title>
-      <Tagline>This is the tag line</Tagline>
+      <Title>
+        <LinesEllipsis
+          text={post.title}
+          maxLine="2"
+          ellipsis=""
+          trimRight
+          basedOn="letters"
+        />
+      </Title>
+      <Tagline>
+        <LinesEllipsis
+          text={post.tagLine}
+          maxLine="2"
+          ellipsis=""
+          trimRight
+          basedOn="words"
+        />
+      </Tagline>
       <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor
+        <LinesEllipsis
+          text={post.caption}
+          maxLine="3"
+          ellipsis="..."
+          trimRight
+          basedOn="words"
+        />
       </Text>
     </CardBox>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 
@@ -19,24 +20,36 @@ const CardContainer = styled.section`
   margin: 10vh 10vw 0 10vw;
 `;
 
-export default function Portfolio() {
+export default function Portfolio({ data }) {
+  const portfolio = data.allSanityPost.nodes;
   return (
     <Layout>
       <Container>
         <CardContainer>
-          <Card title="Portfolio1" />
-          <Card title="Portfolio2" />
-          <Card title="Portfolio3" />
-          <Card title="Portfolio4" />
-          <Card title="Portfolio4" />
-          <Card title="Portfolio4" />
-          <Card title="Portfolio4" />
-          <Card title="Portfolio4" />
-          <Card title="Portfolio4" />
-          <Card title="Portfolio4" />
-          <Card title="Portfolio4" />
+          {portfolio.map((post) => (
+            <Card post={post} />
+          ))}
         </CardContainer>
       </Container>
     </Layout>
   );
 }
+export const query = graphql`
+  query MyQuery {
+    allSanityPost(
+      filter: {
+        category: { id: { eq: "-eefd9223-c192-5906-9804-8369c4216bf5" } }
+      }
+    ) {
+      nodes {
+        title
+        slug {
+          current
+        }
+        id
+        caption
+        tagLine
+      }
+    }
+  }
+`;

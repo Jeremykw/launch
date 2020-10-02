@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 
 const Container = styled.section`
@@ -28,45 +29,39 @@ const ContentArea = styled.div`
   }
 `;
 
-export default function About() {
+export default function About({ data }) {
+  const aboutData = data.allSanityPost.nodes[0];
+  console.log(aboutData);
   return (
     <Layout>
       <Container>
         <GreyArea>
           <ContentArea>
-            <h1>Heading 1</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <h2>Heading 2</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <h3>Heading 3</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <h1>{aboutData.title}</h1>
+            <p>{aboutData.body[0].children[0].text}</p>
           </ContentArea>
         </GreyArea>
       </Container>
     </Layout>
   );
 }
+
+// About content saved as a post under the about category
+export const query = graphql`
+  query AboutQuery {
+    allSanityPost(
+      filter: {
+        category: { _id: { eq: "0cbfbb40-eca5-4f5f-821c-05114b9000e1" } }
+      }
+    ) {
+      nodes {
+        title
+        body {
+          children {
+            text
+          }
+        }
+      }
+    }
+  }
+`;

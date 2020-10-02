@@ -40,14 +40,21 @@ export default {
       },
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: 'url',
+      title: 'Url',
+      description: 'Link to site if appropriate',
+      type: 'url',
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+    },
+    {
+      name: 'tagLine',
+      title: 'Tag Line',
+      type: 'string',
+      description: 'List Technologies Used',
     },
     {
       name: 'caption',
@@ -56,6 +63,11 @@ export default {
       options: {
         maxLength: 100,
       },
+    },
+    {
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
     },
   ],
 

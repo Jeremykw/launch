@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import EmailForm from '../components/EmailForm';
 
@@ -67,17 +68,20 @@ const Form = styled.div`
   /* background-color: var(--lightGrey); */
 `;
 
-export default function Contact() {
+export default function Contact({ data }) {
+  const contact = data.contact.edges[0].node;
   return (
     <Layout>
       <Container>
         <GreyArea>
           <ContactInfo>
-            Launch Pad Creative
+            {contact.businessName}
             <br />
-            351 Carson Drive
+            {contact.street}
             <br />
-            Kitchener, On
+            {contact.city}, {contact.province}
+            <br />
+            {contact.postalCode}
             <br />
           </ContactInfo>
           <Maps>
@@ -101,3 +105,21 @@ export default function Contact() {
     </Layout>
   );
 }
+
+export const query = graphql`
+  query ContactQuery {
+    contact: allSanityBusinessDetails {
+      edges {
+        node {
+          businessName
+          city
+          email
+          phone
+          postalCode
+          province
+          street
+        }
+      }
+    }
+  }
+`;
