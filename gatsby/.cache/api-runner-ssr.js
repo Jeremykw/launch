@@ -3,7 +3,7 @@ var plugins = [{
       options: {"plugins":[]},
     },{
       plugin: require('/Users/jeremybissonnette/dev/launch/gatsby/node_modules/gatsby-source-sanity/gatsby-ssr'),
-      options: {"plugins":[],"projectId":"x8u8gxth","dataset":"production","watchmode":true,"token":"skjpkEQiosJj93O0oeQjj5W7o6wXA5FVuuXUrnKKi3JwZWvO4BA2SsWM2xSxAFUldwK9BkZFzZkPhW3gQvOdXUs33eXI3ji9dSb3mB50SEQPArRJxfkVz88wA9igPdIyFWqe2KF509sxm9r5Ls3i1RGULszYq74Lxs2mQfzr9MSEmAankKou"},
+      options: {"plugins":[],"projectId":"x8u8gxth","dataset":"production","watchmode":true},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
