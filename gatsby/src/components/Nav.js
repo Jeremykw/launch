@@ -6,7 +6,7 @@ const StyledLink = styled(Link)`
   color: ${(props) => props.color || 'var(--black)'};
   text-decoration: none;
   cursor: pointer;
-  z-index: 2;
+  z-index: 20;
   &:active {
     text-decoration: underline;
   }

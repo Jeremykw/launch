@@ -6,7 +6,6 @@ import Nav from './Nav';
 
 const HamburgerWrapper = styled.div`
   display: none;
-
   @media (max-width: 770px) {
     display: grid;
     grid-template-rows: 30px;
@@ -17,11 +16,11 @@ const HamburgerWrapper = styled.div`
 `;
 
 const Hamburger = styled.div`
-  /* grid-auto-rows: 40px; */
   .hamburger {
   }
   .hamburger.show-menu {
-    visibility: hidden;
+    width: 0;
+    z-index: 12;
   }
   .hamburger.hide-menu {
     visibility: visible;
@@ -41,11 +40,12 @@ const Hamburger = styled.div`
     height: 100%;
     width: 100%;
     border: none;
+    z-index: 12;
     outline: none;
-    z-index: 11;
   }
   .close.hide-menu {
     visibility: hidden;
+    width: 0;
   }
 `;
 const Menu = styled.div`
@@ -56,7 +56,6 @@ const Menu = styled.div`
   width: 40vw;
   height: 100vh;
   padding: 90px 10px;
-  z-index: 10;
   transition: opacity 0.5s ease;
 
   &.show-menu {
@@ -65,13 +64,18 @@ const Menu = styled.div`
     grid-template-rows: repeat(4, 60px);
     grid-gap: 10px;
     font-size: 3rem;
+    width: 40vh;
     opacity: 1;
+    z-index: 10;
   }
   &.hide-menu {
+    z-index: 0;
     opacity: 0;
+    width: 0;
   }
   @media (max-width: 770px) {
     & {
+      width: 0;
       visibility: hidden;
     }
   }

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import LinesEllipsis from 'react-lines-ellipsis';
+import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 
 const CardBox = styled.div`
   display: grid;
@@ -18,7 +20,7 @@ const CardBox = styled.div`
   overflow: hidden;
 `;
 
-const Image = styled.img`
+const Image = styled(Img)`
   grid-area: image;
   background-color: var(--blue);
   height: 75px;
@@ -51,38 +53,48 @@ const Text = styled.div`
   font-size: 1.25rem;
 `;
 
+const CardLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  }
+`;
 export default function Card({ post }) {
+  console.clear();
   console.log({ post });
   return (
-    <CardBox>
-      <Image src={post.mainImage.asset.fixed.src} alt={post.title} />
-      <Title>
-        <LinesEllipsis
-          text={post.title}
-          maxLine="2"
-          ellipsis=""
-          trimRight
-          basedOn="letters"
-        />
-      </Title>
-      <Tagline>
-        <LinesEllipsis
-          text={post.tagLine}
-          maxLine="2"
-          ellipsis=""
-          trimRight
-          basedOn="letters"
-        />
-      </Tagline>
-      <Text>
-        <LinesEllipsis
-          text={post.caption}
-          maxLine="3"
-          ellipsis="..."
-          trimRight
-          basedOn="words"
-        />
-      </Text>
-    </CardBox>
+    <CardLink to={`${post.slug.current}`}>
+      <CardBox>
+        <Image fixed={post.mainImage.asset.fixed} alt={post.title} />
+        <Title>
+          <LinesEllipsis
+            text={post.title}
+            maxLine="2"
+            ellipsis=""
+            trimRight
+            basedOn="letters"
+          />
+        </Title>
+        <Tagline>
+          <LinesEllipsis
+            text={post.tagLine}
+            maxLine="2"
+            ellipsis=""
+            trimRight
+            basedOn="letters"
+          />
+        </Tagline>
+        <Text>
+          <LinesEllipsis
+            text={post.caption}
+            maxLine="2"
+            ellipsis="..."
+            trimRight
+            basedOn="words"
+          />
+        </Text>
+      </CardBox>
+    </CardLink>
   );
 }

@@ -9,6 +9,7 @@ exports.components = {
   "component---src-pages-about-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/about.js"))),
   "component---src-pages-contact-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/contact.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/index.js"))),
-  "component---src-pages-portfolio-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/portfolio.js")))
+  "component---src-pages-portfolio-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/pages/portfolio.js"))),
+  "component---src-templates-portfolio-item-js": hot(preferDefault(require("/Users/jeremybissonnette/dev/launch/gatsby/src/templates/portfolioItem.js")))
 }
 

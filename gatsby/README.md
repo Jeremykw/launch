@@ -1,6 +1,4 @@
-Gatsby starter file was used as a launching point
-
-*** Hosted with Netlify, https://www.netlify.com/ ***
+**_ Hosted with Netlify, https://www.netlify.com/ _**
 Initial deploy to Netlify failed - 'git config core.ignorecase false' was nessassary
 Deploy updates - Merge to Master then push to GitHub and Netlify will run build
 currently hosted as https://keen-yalow-76a97c.netlify.app
@@ -9,15 +7,13 @@ to clone 'git clone https://github.com/Jeremykw/launchpad.git'
 
 Sanity will be used to Host any content its still in local state only
 
-*** Sanity.io as Headless CMS ***
+**_ Sanity.io as Headless CMS _**
 ProjectID: x8u8gxth
 Deploy Url: https://launchpad.sanity.studio/
 
-
-
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-  **Start developing.**
+**Start developing.**
 
     Navigate into site’s directory and start it up.
 
@@ -26,12 +22,11 @@ Deploy Url: https://launchpad.sanity.studio/
     gatsby develop
     ```
 
- **Open the source code and start editing!**
+**Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
 
 ## 🧐 What's inside?
 
@@ -88,4 +83,3 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
