@@ -5,7 +5,6 @@ import ContentPageLayout from '../components/ContentPageLayout';
 
 export default function About({ data }) {
   const aboutData = data.allSanityPost.nodes[0];
-  console.log(aboutData);
   return (
     <Layout>
       <ContentPageLayout>
