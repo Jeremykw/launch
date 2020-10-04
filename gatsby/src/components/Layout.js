@@ -20,12 +20,18 @@ const LayoutContainer = styled.section`
   height: 100vh;
 `;
 
+const HeadContainer = styled.div`
+  background: #ffffff50;
+`;
+
 export default function Layout({ children }) {
   return (
     <>
       <GlobalStyles />
       <LayoutContainer>
-        <Header logo />
+        <HeadContainer>
+          <Header logo />
+        </HeadContainer>
 
         {children}
       </LayoutContainer>
