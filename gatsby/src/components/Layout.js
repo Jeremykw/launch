@@ -12,9 +12,9 @@ const LayoutContainer = styled.section`
   display: grid;
   grid-template-rows: auto 1fr;
   background: url(${BgAngleSolid}) no-repeat left bottom fixed;
-  -webkit-background-size: 100vw auto;
+  /* -webkit-background-size: 100vw auto;
   -moz-background-size: 100vw auto;
-  -o-background-size: 100vw auto;
+  -o-background-size: 100vw auto; */
   background-size: 100vw auto;
   font-family: Geneva;
   color: var(--black);
