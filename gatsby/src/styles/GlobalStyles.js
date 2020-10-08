@@ -26,6 +26,9 @@ html {
 body {
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  overflow: hidden;
+
 }
 
 *,
@@ -36,6 +39,7 @@ body {
 
 h1 {
  font-size: 3rem;
+ line-height: 3.1rem;
 }
 h2 {
   font-size: 2rem;

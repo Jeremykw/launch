@@ -4,19 +4,15 @@ import styled from 'styled-components';
 const Container = styled.section`
   justify-content: center;
   align-items: top;
-  height: 100%;
+  height: auto;
   font-weight: bold;
+  display: grid;
   overflow-y: auto;
 `;
 
-const GreyArea = styled.div`
-  display: grid;
-  height: auto;
-  margin: 10vh 10vw 0 10vw;
-  padding: 30px;
-`;
 const ContentArea = styled.div`
   background-color: var(--white);
+  margin: 5vh 10vw 10vw 10vw;
   padding: 30px;
   line-height: 2rem;
   font-size: 1.5rem;
@@ -28,9 +24,7 @@ const ContentArea = styled.div`
 export default function ContentPageLayout({ children }) {
   return (
     <Container>
-      <GreyArea>
-        <ContentArea>{children}</ContentArea>
-      </GreyArea>
+      <ContentArea>{children}</ContentArea>
     </Container>
   );
 }

@@ -7,6 +7,8 @@ import Header from './Header';
 import BgAngleSolid from '../images/bgAngleSolid.svg';
 
 const LayoutContainer = styled.section`
+  position: absolute;
+  overflow-x: hidden;
   display: grid;
   grid-template-rows: auto 1fr;
   background: url(${BgAngleSolid}) no-repeat left bottom fixed;

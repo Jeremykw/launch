@@ -8,18 +8,35 @@ import ContentPageLayout from '../components/ContentPageLayout';
 const Container = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-areas:
+    'caption caption'
+    'image body';
+  @media (max-width: 800px) {
+    /* line-height: 1rem; */
+    grid-template-areas:
+      'image'
+      'caption'
+      'body';
+  }
 `;
 
 const Image = styled(Img)`
   width: 30rem;
+  grid-area: image;
+  @media (max-width: 800px) {
+    width: 75%;
+    justify-self: center;
+  }
 `;
 
 const Body = styled.div`
   padding: 1.5rem;
   overflow: visible;
+  grid-area: body;
 `;
 const Caption = styled.div`
   padding: 1rem;
+  grid-area: caption;
 `;
 
 export default function SinglePortfolioItem({ data }) {
@@ -32,9 +49,9 @@ export default function SinglePortfolioItem({ data }) {
       <ContentPageLayout>
         <h1>{post.title}</h1>
         <span>{post.tagLine}</span>
-        <Caption>{post.caption}</Caption>
         <Container>
-          <Image fluid={post.mainImage.asset.fluid} />
+          <Caption>{post.caption}</Caption>
+          <Image fluid={post.mainImage.asset.fluid} alt="Website design" />
           <Body>
             {post.body.map((content) => (
               <div>{content.children[0].text}</div>
@@ -60,7 +77,7 @@ export const query = graphql`
       }
       mainImage {
         asset {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 800) {
             ...GatsbySanityImageFluid
           }
         }

@@ -2,8 +2,8 @@
   "workbench.colorCustomizations": {
     "titleBar.activeForeground": "#fff",
     "titleBar.inactiveForeground": "#ffffffcc",
-    "titleBar.activeBackground": "#FF2C70",
-    "titleBar.inactiveBackground": "#FF2C70CC"
+    "titleBar.activeBackground": "#12A8FF70",
+    "titleBar.inactiveBackground": "#3d647b"
   },
   // These are all my auto-save configs
   "editor.formatOnSave": true,
@@ -19,8 +19,5 @@
     "source.fixAll": true
   },
   // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
-  "prettier.disableLanguages": [
-    "javascript",
-    "javascriptreact"
-  ],
+  "prettier.disableLanguages": ["javascript", "javascriptreact"]
 }

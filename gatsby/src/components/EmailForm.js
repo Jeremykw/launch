@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
 const Form = styled.form`
   display: grid;
-  grid-template-areas: "form1 form2";
+  grid-template-areas: 'form1 form2';
   grid-gap: 30px;
   height: auto;
   width: 100%;
@@ -41,7 +41,7 @@ const Form = styled.form`
   input:hover,
   textarea:hover,
   button:hover {
-    border: 1.5px solid var(--brightBlue)
+    border: 1.5px solid var(--brightBlue);
   }
 
   label {
@@ -56,22 +56,22 @@ const Form = styled.form`
   }
   @media (max-width: 770px) {
     grid-template-areas:
-      "form1"
-      "form2";
+      'form1'
+      'form2';
     grid-gap: 0;
   }
-`
+`;
 
 const Form1 = styled.div`
   grid-area: form1;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-`
+`;
 const Form2 = styled.div`
   grid-area: form2;
   display: grid;
   grid-template-rows: auto 1fr;
-`
+`;
 
 export default function EmailForm() {
   return (
@@ -96,5 +96,5 @@ export default function EmailForm() {
         <button type="submit">Send</button>
       </Form2>
     </Form>
-  )
+  );
 }

@@ -64,9 +64,12 @@ const Menu = styled.div`
     grid-template-rows: repeat(4, 60px);
     grid-gap: 10px;
     font-size: 3rem;
-    width: 40vh;
+    width: 40vw;
     opacity: 1;
     z-index: 10;
+    @media (max-width: 450px) {
+      width: 70vw;
+    }
   }
   &.hide-menu {
     z-index: 0;
@@ -77,11 +80,6 @@ const Menu = styled.div`
     & {
       width: 0;
       visibility: hidden;
-    }
-  }
-  @media (max-width: 450px) {
-    & {
-      width: 70vw;
     }
   }
 `;
