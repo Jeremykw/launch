@@ -29,12 +29,12 @@ const Image = styled(Img)`
   }
 `;
 
-const Body = styled.div`
+const Body = styled.p`
   padding: 1.5rem;
   overflow: visible;
   grid-area: body;
 `;
-const Caption = styled.div`
+const Caption = styled.blockquote`
   padding: 1rem;
   grid-area: caption;
 `;

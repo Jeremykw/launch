@@ -16,7 +16,6 @@ const LayoutContainer = styled.section`
   -moz-background-size: 100vw auto;
   -o-background-size: 100vw auto;
   background-size: 100vw auto;
-  font-family: Geneva;
   color: var(--black);
   width: 100vw;
   height: 100vh;
