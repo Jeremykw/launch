@@ -1,10 +1,19 @@
+import { graphql } from 'gatsby';
 import React, { Component } from 'react';
 import LayoutHome from '../components/LayoutHome';
 
-class Home extends Component {
-  render() {
-    return <LayoutHome />;
-  }
+export default function Home({ data }) {
+  return <LayoutHome bgImage={data.bgImage} />;
 }
 
-export default Home;
+export const bgImageQuery = graphql`
+  query {
+    bgImage: file(relativePath: { eq: "bgLaunch.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 import logo from '../images/launchPadLogo.svg';
-import BgLaunch from '../images/bgLaunch.png';
+
 import angleLeft from '../images/leftAngleTransparent.svg';
 import angleRight from '../images/rightAngleTransparent.svg';
 
@@ -134,7 +135,7 @@ const Tagline = styled.div`
     }
   }
 `;
-const MobileImage = styled.img`
+const MobileImage = styled(Img)`
   display: none;
   width: 90%;
   grid-column: 2;
@@ -202,7 +203,8 @@ const AngleRight = styled.div`
   }
 `;
 export default function Logo(props) {
-  const { transparent } = props;
+  const { bgImage } = props;
+  console.log({ bgImage });
   return (
     <Container>
       {' '}
@@ -215,7 +217,7 @@ export default function Logo(props) {
           <li>Modern Business</li>
         </ul>
       </Tagline>
-      <MobileImage src={BgLaunch} />
+      <MobileImage fluid={bgImage.childImageSharp.fluid} alt="Launch Pad" />
       <AngleLeft>
         <img src={angleLeft} alt="" />
       </AngleLeft>
