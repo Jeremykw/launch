@@ -62,7 +62,6 @@ const CardLink = styled(Link)`
   }
 `;
 export default function Card({ post }) {
-  console.log({ post });
   return (
     <CardLink to={`${post.slug.current}`}>
       <CardBox>
