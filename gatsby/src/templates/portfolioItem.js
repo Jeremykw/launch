@@ -4,15 +4,17 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import ContentPageLayout from '../components/ContentPageLayout';
+import MediumPageBody from '../components/MediumPageBody';
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   grid-template-areas:
-    'caption caption'
-    'image body';
+    'image caption'
+    'body body';
   @media (max-width: 800px) {
-    /* line-height: 1rem; */
+    grid-template-columns: 1fr;
     grid-template-areas:
       'image'
       'caption'
@@ -21,8 +23,9 @@ const Container = styled.div`
 `;
 
 const Image = styled(Img)`
-  width: 30rem;
+  width: 100%;
   grid-area: image;
+  margin-top: 1.5rem;
   @media (max-width: 800px) {
     width: 75%;
     justify-self: center;
@@ -40,7 +43,7 @@ const Caption = styled.blockquote`
 `;
 
 export default function SinglePortfolioItem({ data }) {
-  const { post } = data;
+  const { post, mediumPosts } = data;
   console.clear();
   console.log(post);
 
@@ -51,11 +54,17 @@ export default function SinglePortfolioItem({ data }) {
         <span>{post.tagLine}</span>
         <Container>
           <Caption>{post.caption}</Caption>
-          <Image fluid={post.mainImage.asset.fluid} alt="Website design" />
+          <Image
+            fluid={post.mainImage.asset.fluid}
+            imgStyle={{ objectFit: 'contain' }}
+            alt="Website design"
+          />
           <Body>
-            {post.body.map((content) => (
-              <div>{content.children[0].text}</div>
-            ))}
+            {post.body ? (
+              post.body.map((content) => <div>{content.children[0].text}</div>)
+            ) : (
+              <MediumPageBody posts={mediumPosts} />
+            )}
           </Body>
         </Container>
       </ContentPageLayout>
@@ -65,6 +74,12 @@ export default function SinglePortfolioItem({ data }) {
 
 export const query = graphql`
   query($slug: String!) {
+    mediumPosts: allMediumPost {
+      nodes {
+        title
+        id
+      }
+    }
     post: sanityPost(slug: { current: { eq: $slug } }) {
       id
       title

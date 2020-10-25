@@ -5,7 +5,7 @@ import slug from 'slug';
 async function createPortfolioPages({ graphql, actions }) {
   // 1. Get a template for this page
   const portfolioTemplate = path.resolve('./src/templates/portfolioItem.js');
-  // 2. Query all Pizzas
+  // 2. Query all sanity Posts
   const { data } = await graphql(`
     query {
       posts: allSanityPost(
@@ -43,7 +43,7 @@ async function createMediumBlogPages({ graphql, actions }) {
 
   const { data } = await graphql(`
     query {
-      posts: allPost {
+      posts: allMediumPost {
         nodes {
           title
           author
@@ -80,7 +80,7 @@ async function fetchMediumArticlesAndTurnIntoNodes({
       parent: null,
       children: [],
       internal: {
-        type: 'post',
+        type: 'mediumPost',
         mediaType: 'application/json',
         contentDigest: createContentDigest(post),
       },
