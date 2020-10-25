@@ -49,7 +49,6 @@ const LayoutContainer = styled(BackgroundImage)`
 
 export default function Layout(props) {
   const { children, bgImage } = props;
-  console.log(props);
   return (
     <>
       <GlobalStyles />

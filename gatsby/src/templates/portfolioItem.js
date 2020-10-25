@@ -44,8 +44,6 @@ const Caption = styled.blockquote`
 
 export default function SinglePortfolioItem({ data }) {
   const { post, mediumPosts } = data;
-  console.clear();
-  console.log(post);
 
   return (
     <Layout>

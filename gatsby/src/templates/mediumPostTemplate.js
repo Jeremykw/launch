@@ -28,7 +28,6 @@ const StyledContent = styled.div`
 
 export default function mediumPostTemplate({ data }) {
   const post = data.posts.nodes[0];
-  console.log(post);
   return (
     <Layout>
       <ContentPageLayout>

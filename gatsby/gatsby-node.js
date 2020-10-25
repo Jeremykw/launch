@@ -54,7 +54,6 @@ async function createMediumBlogPages({ graphql, actions }) {
     }
   `);
   data.posts.nodes.forEach((post) => {
-    console.log('PATH = ', `blog/${slug(post.title)}`);
     actions.createPage({
       path: `blog/${slug(post.title)}`,
       component: mediumPostTemplate,

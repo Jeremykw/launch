@@ -16,7 +16,6 @@ const StyledLink = styled(Link)`
 `;
 
 export default function MediumPageBody({ posts }) {
-  console.log({ posts });
   return (
     <ul>
       {posts.nodes.map((post) => (

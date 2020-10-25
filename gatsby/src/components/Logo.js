@@ -204,7 +204,6 @@ const AngleRight = styled.div`
 `;
 export default function Logo(props) {
   const { bgImage } = props;
-  console.log({ bgImage });
   return (
     <Container>
       {' '}
