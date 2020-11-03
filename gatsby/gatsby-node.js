@@ -1,7 +1,7 @@
-// import path from 'path';
 import createPortfolioPages from './gatsby-node-helpers/createPortfolioPages';
 import createMediumBlogPages from './gatsby-node-helpers/createMediumBlogPages';
 import fetchMediumArticlesAndTurnIntoNodes from './gatsby-node-helpers/fetchMediumArticlesAndTurnIntoNodes';
+import portfolioPagePagination from './gatsby-node-helpers/portfolioPagePagination';
 
 export async function sourceNodes(params) {
   // sourceNodes is a gatsby life cycle hook called once
@@ -11,6 +11,10 @@ export async function sourceNodes(params) {
 
 export async function createPages(params) {
   // Create Pages Dynamically
-  await createPortfolioPages(params);
-  await createMediumBlogPages(params);
+
+  await Promise.all([
+    createPortfolioPages(params),
+    createMediumBlogPages(params),
+    portfolioPagePagination(params),
+  ]);
 }

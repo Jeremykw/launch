@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import MobileMenu from './MobileMenu';
 import Nav from './Nav';
@@ -32,7 +33,9 @@ export default function Header(props) {
   return (
     <HeadContainer>
       <LogoContainer logo={props.logo}>
-        <img src={Logo} alt="LaunchPad web development Logo" />
+        <Link to="/">
+          <img src={Logo} alt="LaunchPad web development Logo" />
+        </Link>
       </LogoContainer>
       <NavDeskTop>
         <Nav color={props.color} />

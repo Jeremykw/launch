@@ -22,8 +22,7 @@ const CardBox = styled.div`
 
 const Image = styled(Img)`
   grid-area: image;
-  border: ${(props) => (props.noBackGround ? '1px solid var(--black)' : '')};
-  background: ${(props) => (!props.noBackGround ? 'var(--blue)' : '')};
+  width: 100%;
   height: 75px;
   width: 75px;
 `;
@@ -66,9 +65,10 @@ export default function Card({ post }) {
     <CardLink to={`${post.slug.current}`}>
       <CardBox>
         <Image
-          fixed={post.mainImage.asset.fixed}
+          fluid={post.mainImage.asset.fluid}
           noBackGround={post.slug.current === 'medium-blog'}
           alt={post.title}
+          imgStyle={{ objectFit: 'contain' }}
         />
         <Title>
           <LinesEllipsis
