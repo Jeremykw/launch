@@ -92,7 +92,9 @@ export default function EmailForm() {
       </Form1>
       <Form2>
         <label>Message</label>
-        <textarea name="message" id="message" />
+        <textarea name="message" id="message">
+          Email Form is Temporarily Out of Order
+        </textarea>
         <button type="submit">Send</button>
       </Form2>
     </Form>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
@@ -42,13 +42,26 @@ const Caption = styled.blockquote`
   grid-area: caption;
 `;
 
+const Title = styled(Link)`
+  text-decoration: none;
+  color: var(--black);
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const TitleWithLink = (post) => (
+  <Title to={post.url ? post.url : ''}>
+    <h1>{post.title}</h1>
+  </Title>
+);
 export default function SinglePortfolioItem({ data }) {
   const { post, mediumPosts } = data;
-
+  console.log({ data });
   return (
     <Layout>
       <ContentPageLayout>
-        <h1>{post.title}</h1>
+        {post.url ? TitleWithLink(post) : <h1>{post.title}</h1>}
         <span>{post.tagLine}</span>
         <Container>
           <Caption>{post.caption}</Caption>
@@ -56,6 +69,7 @@ export default function SinglePortfolioItem({ data }) {
             fluid={post.mainImage.asset.fluid}
             imgStyle={{ objectFit: 'contain' }}
             alt="Website design"
+            key={post.id}
           />
           <Body>
             {post.body ? (
@@ -83,6 +97,7 @@ export const query = graphql`
       title
       tagLine
       caption
+      url
       body {
         children {
           text
