@@ -5,11 +5,13 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: 'Launch Pad',
+    title: 'Launch Pad Creations',
     siteUrl: 'https://launchpad.com',
     description: 'Website design for modern business',
+    linkedin: 'https://www.linkedin.com/in/jeremy-bissonnette-55203213/',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
