@@ -18,6 +18,5 @@ https://launchpadcreations.com/
 Sanity will be used to Host any content its still in local state only
 
 *** Sanity.io as Headless CMS ***
-ProjectID: x8u8gxth
 Deploy Url: https://launchpad.sanity.studio/ - edit content on live site here
 
