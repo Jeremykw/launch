@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import EmailForm from '../components/EmailForm';
+import SEO from '../components/SEO';
 
 const Container = styled.section`
   justify-content: center;
@@ -72,6 +73,7 @@ export default function Contact({ data }) {
   const contact = data.contact.edges[0].node;
   return (
     <Layout>
+      <SEO title="Contact" />
       <Container>
         <GreyArea>
           <ContactInfo>

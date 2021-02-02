@@ -16,7 +16,7 @@ export default function SEO({ children, location, description, title, image }) {
     }
   `);
   return (
-    <Helmet titleTemplate={`%s - Launch Pad `}>
+    <Helmet titleTemplate={`%s | Launch Pad `}>
       <html lang="en" />
       <title>{title}</title>
       {/* Meta Tags */}

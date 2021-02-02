@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import BackgroundImage from 'gatsby-background-image';
 import 'normalize.css';
 import GlobalStyles from '../styles/GlobalStyles';
-import SEO from './SEO';
 import Header from './Header';
 import Logo from './Logo';
 import BgAngleSolid from '../images/bgAngleSolid.svg';
@@ -51,7 +50,6 @@ export default function Layout(props) {
   const { children, bgImage } = props;
   return (
     <>
-      <SEO title="Home" />
       <GlobalStyles />
       <LayoutContainer
         fluid={bgImage.childImageSharp.fluid}

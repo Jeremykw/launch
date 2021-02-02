@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
+import SEO from '../components/SEO';
 
 const Container = styled.section`
   justify-content: center;
@@ -31,6 +32,7 @@ export default function Portfolio({ data }) {
   console.log({ courses });
   return (
     <Layout>
+      <SEO title="Portfolio" />
       <Container>
         <h1>Projects</h1>
         <CardContainer>

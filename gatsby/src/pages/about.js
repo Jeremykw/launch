@@ -2,11 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import ContentPageLayout from '../components/ContentPageLayout';
+import SEO from '../components/SEO';
 
 export default function About({ data }) {
   const aboutData = data.allSanityPost.nodes[0];
   return (
     <Layout>
+      <SEO title="About" />
       <ContentPageLayout>
         <h1>{aboutData.title}</h1>
         <p>{aboutData.body[0].children[0].text}</p>

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import ContentPageLayout from '../components/ContentPageLayout';
 import MediumPageBody from '../components/MediumPageBody';
+import SEO from '../components/SEO';
 
 const Container = styled.div`
   display: grid;
@@ -60,17 +61,16 @@ export default function SinglePortfolioItem({ data }) {
   console.log({ data });
   return (
     <Layout>
+      <SEO title={post.title} />
       <ContentPageLayout>
-        {post.url
-          ? TitleWithLink(post)
-          : `${post.title && <h1>{post.title}</h1>}`}
+        {post.url ? TitleWithLink(post) : <h1>{post.title}</h1>}
         <span>{post.tagLine}</span>
         <Container>
           {post.caption && <Caption>{post.caption}</Caption>}
           <Image
             fluid={post.mainImage.asset.fluid}
             imgStyle={{ objectFit: 'contain' }}
-            alt="Website design"
+            alt={post.title}
             key={post.id}
           />
           <Body>
