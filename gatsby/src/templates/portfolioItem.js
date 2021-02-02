@@ -61,10 +61,12 @@ export default function SinglePortfolioItem({ data }) {
   return (
     <Layout>
       <ContentPageLayout>
-        {post.url ? TitleWithLink(post) : <h1>{post.title}</h1>}
+        {post.url
+          ? TitleWithLink(post)
+          : `${post.title && <h1>{post.title}</h1>}`}
         <span>{post.tagLine}</span>
         <Container>
-          <Caption>{post.caption}</Caption>
+          {post.caption && <Caption>{post.caption}</Caption>}
           <Image
             fluid={post.mainImage.asset.fluid}
             imgStyle={{ objectFit: 'contain' }}

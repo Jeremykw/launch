@@ -15,6 +15,6 @@ export async function createPages(params) {
   await Promise.all([
     createPortfolioPages(params),
     createMediumBlogPages(params),
-    portfolioPagePagination(params),
+    // portfolioPagePagination(params),
   ]);
 }

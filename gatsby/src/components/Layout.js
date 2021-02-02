@@ -19,6 +19,7 @@ const LayoutContainer = styled.section`
   color: var(--black);
   width: 100vw;
   height: 100vh;
+  /* overflow: hidden; */
 `;
 
 const HeadContainer = styled.div`

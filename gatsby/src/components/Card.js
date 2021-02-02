@@ -53,51 +53,72 @@ const Text = styled.div`
   font-size: 1.25rem;
 `;
 
-const CardLink = styled(Link)`
+const CardLinkStyles = styled(Link)`
   text-decoration: none;
   color: inherit;
   &:hover {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
   }
 `;
+
+function OptionalCardLink({ hasLink, children }) {
+  return (
+    <CardLinkStyles>
+      {hasLink ? (
+        <CardLinkStyles to={hasLink}>{children}</CardLinkStyles>
+      ) : (
+        <div styles={{ color: 'inherit' }}>{children}</div>
+      )}
+    </CardLinkStyles>
+  );
+}
+
 export default function Card({ post }) {
   return (
-    <CardLink to={`${post.slug.current}`}>
+    <OptionalCardLink hasLink={post.slug.current}>
       <CardBox>
-        <Image
-          fluid={post.mainImage.asset.fluid}
-          noBackGround={post.slug.current === 'medium-blog'}
-          alt={post.title}
-          imgStyle={{ objectFit: 'contain' }}
-        />
-        <Title>
-          <LinesEllipsis
-            text={post.title}
-            maxLine="2"
-            ellipsis=""
-            trimRight
-            basedOn="letters"
+        {post.mainImage.asset.fluid && (
+          <Image
+            fluid={post.mainImage.asset.fluid}
+            noBackGround={post.slug.current === 'medium-blog'}
+            alt={post.title}
+            imgStyle={{ objectFit: 'contain' }}
           />
-        </Title>
-        <Tagline>
-          <LinesEllipsis
-            text={post.tagLine}
-            maxLine="2"
-            ellipsis=""
-            trimRight
-            basedOn="letters"
-          />
-        </Tagline>
-        <Text>
-          <LinesEllipsis
-            text={post.caption}
-            maxLine="2"
-            ellipsis="..."
-            trimRight
-            basedOn="words"
-          />
-        </Text>
+        )}
+        {post.title && (
+          <Title>
+            <LinesEllipsis
+              text={post.title}
+              maxLine="2"
+              ellipsis=""
+              trimRight
+              basedOn="letters"
+            />
+          </Title>
+        )}
+        {post.tagLine && (
+          <Tagline>
+            <LinesEllipsis
+              text={post.tagLine}
+              maxLine="2"
+              ellipsis=""
+              trimRight
+              basedOn="letters"
+            />
+          </Tagline>
+        )}
+        {post.caption && (
+          <Text>
+            <LinesEllipsis
+              text={post.caption}
+              maxLine="2"
+              ellipsis="..."
+              trimRight
+              basedOn="words"
+            />
+          </Text>
+        )}
       </CardBox>
-    </CardLink>
+    </OptionalCardLink>
   );
 }

@@ -6,13 +6,18 @@ export default async function createPortfolioPages({ graphql, actions }) {
   // 2. Query all sanity Posts
   const { data } = await graphql(`
     query {
-      posts: allSanityPost(
-        filter: {
-          category: { id: { eq: "-eefd9223-c192-5906-9804-8369c4216bf5" } }
-        }
-      ) {
+      posts: allSanityPost {
         nodes {
+          body {
+            children {
+              text
+            }
+          }
           title
+          caption
+          category {
+            id
+          }
           slug {
             current
           }
@@ -22,13 +27,15 @@ export default async function createPortfolioPages({ graphql, actions }) {
   `);
   // 3. Loop over each post and create a page for that post
   data.posts.nodes.forEach((post) => {
-    actions.createPage({
-      // What is the url for this new page
-      path: `portfolio/${post.slug.current}`,
-      component: portfolioTemplate,
-      context: {
-        slug: post.slug.current,
-      },
-    });
+    if (post.category.id !== '-f7e0a2ea-0f15-5e37-a09f-6489d072f12c') {
+      actions.createPage({
+        // What is the url for this new page
+        path: `portfolio/${post.slug.current}`,
+        component: portfolioTemplate,
+        context: {
+          slug: post.slug.current,
+        },
+      });
+    }
   });
 }
