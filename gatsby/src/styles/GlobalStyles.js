@@ -15,6 +15,9 @@ const GlobalStyles = createGlobalStyle`
   --grey: #5c5d5e;
   --lightGrey: #c4c4c470;
   --clear: #00000000;
+
+  --h_black: #01142A;
+  --h_grey: #5e6c7c;
 }
 html {
   font-size: 10px;

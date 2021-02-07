@@ -25,7 +25,7 @@ const GreyArea = styled.div`
     'form form';
   /* max-width: 1300px; */
   background-color: var(--lightGrey);
-  margin: 10vh 10vw 0 10vw;
+  margin: 5vh 10vw 0 10vw;
   padding: 30px;
   @media (max-width: 770px) {
     grid-template-columns: 1fr;
@@ -66,7 +66,6 @@ const Maps = styled.div`
 const Form = styled.div`
   grid-area: form;
   align-self: end;
-  /* background-color: var(--lightGrey); */
 `;
 
 export default function Contact({ data }) {

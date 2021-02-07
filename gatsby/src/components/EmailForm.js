@@ -1,102 +1,89 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Form = styled.form`
-  display: grid;
-  grid-template-areas: 'form1 form2';
-  grid-gap: 30px;
-  height: auto;
-  width: 100%;
-  input,
-  label,
-  textarea,
-  button {
-    width: 100%;
-    display: block;
-    font-size: 1.4rem;
-  }
-  input,
-  textarea,
-  button {
-    background: var(--lightGrey);
-    border: 1px solid var(--black);
-  }
-  input,
-  button {
-    height: 4rem;
-  }
-  input,
-  textarea {
-    padding: 1em;
-    font-family: inherit;
-    letter-spacing: 2px;
-    color: var(--white);
-  }
-  input:focus,
-  input:active,
-  textarea:focus,
-  textarea:active {
-    background-color: var(--lightBrown);
-  }
-  input:hover,
-  textarea:hover,
-  button:hover {
-    border: 1.5px solid var(--brightBlue);
-  }
-
-  label {
-    padding: 1em;
-    padding-bottom: 0.25em;
-  }
-  button {
-    color: var(--red);
-    background-color: var(--white);
-    margin-top: 1rem;
-    font-weight: bold;
-  }
-  @media (max-width: 770px) {
-    grid-template-areas:
-      'form1'
-      'form2';
-    grid-gap: 0;
-  }
-`;
-
-const Form1 = styled.div`
-  grid-area: form1;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-`;
-const Form2 = styled.div`
-  grid-area: form2;
-  display: grid;
-  grid-template-rows: auto 1fr;
-`;
+import {
+  Form,
+  FormSection1,
+  FormSection2,
+  FormMessage,
+} from '../styles/FormStyles';
+import useEmail from '../utilities/useEmail';
+import useForm from '../utilities/useForm';
 
 export default function EmailForm() {
+  const { values, updateValue } = useForm({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    mapleSyrup: '',
+  });
+  const { sendMail, loading, error, message } = useEmail({ values });
+
+  // if their is a message, ie. 'email sent' display message
+  if (message) {
+    return <FormMessage>{message}</FormMessage>;
+  }
+  const doNothing = (e) => {
+    e.preventDefault();
+  };
   return (
-    <Form>
-      <Form1>
+    <Form onSubmit={doNothing}>
+      {error ? <FormMessage>{error}</FormMessage> : ''}
+      <FormSection1>
+        <input
+          disabled={loading}
+          className="mapleSyrup"
+          type="mapleSyrup"
+          name="mapleSyrup"
+          id="mapleSyrup"
+          value={values.mapleSyrup}
+          onChange={updateValue}
+        />
         <div>
-          <label>Name</label>
-          <input type="text" name="name" id="name" />
+          <label htmlFor="name">Name</label>
+          <input
+            disabled={loading}
+            type="text"
+            name="name"
+            id="name"
+            value={values.name}
+            onChange={updateValue}
+          />
         </div>
         <div>
-          <label>Email</label>
-          <input type="email" name="email" id="email" />
+          <label htmlFor="Email">Email</label>
+          <input
+            type="email"
+            disabled={loading}
+            name="email"
+            id="email"
+            value={values.email}
+            onChange={updateValue}
+          />
         </div>
         <div>
-          <label>Subject</label>
-          <input type="text" name="subject" id="subject" />
+          <label htmlFor="subject">Subject</label>
+          <input
+            disabled={loading}
+            type="text"
+            name="subject"
+            id="subject"
+            value={values.subject}
+            onChange={updateValue}
+          />
         </div>
-      </Form1>
-      <Form2>
-        <label>Message</label>
-        <textarea name="message" id="message">
-          Email Form is Temporarily Out of Order
-        </textarea>
-        <button type="submit">Send</button>
-      </Form2>
+      </FormSection1>
+      <FormSection2>
+        <label htmlFor="message">Message</label>
+        <textarea
+          disabled={loading}
+          name="message"
+          id="message"
+          // value={values.message}
+          value="Email Form is Temporarily Out of Order"
+          onChange={updateValue}
+        />
+        <button type="submit">{loading ? 'Loading...' : 'Send'}</button>
+      </FormSection2>
     </Form>
   );
 }
