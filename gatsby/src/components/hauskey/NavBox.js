@@ -36,16 +36,23 @@ const ListStyles = styled.li`
   img {
     align-self: top;
   }
-  a {
+  .feature_link {
     text-decoration: none;
     color: var(--h_black);
   }
-  a:hover {
+  .feature_link:hover {
     color: var(--h_grey);
   }
 `;
 
 export default function NavBox({ links }) {
+  const handleClick = (linkId) => {
+    const section = document.getElementById(linkId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <NavBoxStyles>
       <ListGrid>
@@ -53,9 +60,9 @@ export default function NavBox({ links }) {
           const linkId = link.split(' ').join('_');
           return (
             <ListStyles key={`${linkId}_${i}`} listLength={links.length}>
-              <AnchorLink to={`/hauskey#${linkId}`} title={link}>
+              <div className="feature_link" onClick={() => handleClick(linkId)}>
                 <strong>{link}</strong>
-              </AnchorLink>
+              </div>
               <img src={ListSeparator} alt="List Separator" />
             </ListStyles>
           );

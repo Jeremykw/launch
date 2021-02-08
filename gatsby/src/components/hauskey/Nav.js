@@ -9,6 +9,9 @@ const NavStyles = styled.nav`
     font-weight: bold;
     margin: 0 1rem 0 1rem;
   }
+  span:hover {
+    color: var(--h_grey);
+  }
   @media (max-width: 860px) {
     & {
       display: none;

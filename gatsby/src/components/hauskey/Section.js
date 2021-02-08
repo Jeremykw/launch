@@ -13,6 +13,6 @@ const SectionStyles = styled.section`
   }
 `;
 
-export default function Section({ children }) {
-  return <SectionStyles>{children}</SectionStyles>;
+export default function Section({ children, linkId }) {
+  return <SectionStyles id={linkId}>{children}</SectionStyles>;
 }
