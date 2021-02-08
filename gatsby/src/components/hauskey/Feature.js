@@ -23,9 +23,17 @@ const ImageGrid = styled.div`
 const Image = styled(Img)`
   height: 200px;
   width: 200px;
-  @media (max-width: 490px) {
-    height: 150px;
-    width: 150px;
+  @media (max-width: 960px) {
+    height: 250px;
+    width: 250px;
+  }
+  @media (max-width: 650px) {
+    height: 200px;
+    width: 200px;
+  }
+  @media (max-width: 500px) {
+    height: 250px;
+    width: 250px;
   }
   &.no_hover {
     filter: grayscale(75%);

@@ -8,6 +8,7 @@ import Splash from '../components/hauskey/Splash';
 import Section from '../components/hauskey/Section';
 import Feature from '../components/hauskey/Feature';
 import Footer from '../components/hauskey/Footer';
+import SEO from '../components/hauskey/SEO';
 
 const TopSection = styled.div`
   height: 100vh;
@@ -37,17 +38,18 @@ export default function Hauskey({ data }) {
   return (
     <>
       <HauskeyLayout>
+        <SEO />
         <TopSection>
           <Header />
           <Splash bgImage={data.hauskey} sections={sections} />
-          <Section id="advanced_search">
+          <Section>
             <Feature
               images={quickSearchImages}
               title="Advanced Search Features"
               tagline="Find your dream condo in moments"
             />
           </Section>
-          <Section id="mapping">
+          <Section>
             <Feature
               images={projectListingImages}
               title="Project Listings"
@@ -119,14 +121,7 @@ export const HauskeyImageQuery = graphql`
         }
       }
     }
-    condo_9: file(relativePath: { eq: "hauskey/condos/condo_9.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    hauskey: file(relativePath: { eq: "hauskey/hauskey_home_image.jpg" }) {
+    hauskey: file(relativePath: { eq: "hauskey/hauskey_bg_1.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1800) {
           ...GatsbyImageSharpFluid

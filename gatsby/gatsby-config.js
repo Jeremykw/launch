@@ -14,6 +14,7 @@ export default {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-anchor-links',
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-source-filesystem`,

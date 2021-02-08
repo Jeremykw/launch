@@ -9,6 +9,7 @@ const HeaderStyles = styled.nav`
   margin: 0 5rem 0 5rem;
   height: 20%;
   img {
+    align-self: center;
     justify-self: end;
   }
 `;

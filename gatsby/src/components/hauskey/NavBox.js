@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import ListSeparator from '../../images/hauskey/list_separating_ellipse.svg';
 
 const NavBoxStyles = styled.div`
   background: white;
   height: 80%;
   margin-bottom: 100px;
-  @media (max-with: 960px) {
+  @media (max-width: 960px) {
     & {
       display: none;
     }
@@ -34,6 +36,13 @@ const ListStyles = styled.li`
   img {
     align-self: top;
   }
+  a {
+    text-decoration: none;
+    color: var(--h_black);
+  }
+  a:hover {
+    color: var(--h_grey);
+  }
 `;
 
 export default function NavBox({ links }) {
@@ -44,7 +53,9 @@ export default function NavBox({ links }) {
           const linkId = link.split(' ').join('_');
           return (
             <ListStyles key={`${linkId}_${i}`} listLength={links.length}>
-              <strong>{link}</strong>
+              <AnchorLink to={`/hauskey#${linkId}`} title={link}>
+                <strong>{link}</strong>
+              </AnchorLink>
               <img src={ListSeparator} alt="List Separator" />
             </ListStyles>
           );

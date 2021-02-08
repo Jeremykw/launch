@@ -17,6 +17,20 @@ const Container = styled.div`
     margin-top: 0;
     margin-bottom: 8rem;
   }
+  @media (max-width: 960px) {
+    & {
+      padding: 4rem;
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 650px) {
+    & {
+      h1,
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
 `;
 
 const SplashStyles = styled(BackgroundImage)`
@@ -38,7 +52,7 @@ export default function Splash({ bgImage, sections }) {
       <Container>
         <TextStyles>
           <h1>
-            <strong>Your Pre-Constrution Condo Marketplace</strong>
+            <strong>Your Pre-Construction Condo Marketplace</strong>
           </h1>
           <p>Earn up to 3% Cash Back</p>
         </TextStyles>
