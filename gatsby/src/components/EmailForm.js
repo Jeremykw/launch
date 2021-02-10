@@ -22,11 +22,9 @@ export default function EmailForm() {
   if (message) {
     return <FormMessage>{message}</FormMessage>;
   }
-  const doNothing = (e) => {
-    e.preventDefault();
-  };
+
   return (
-    <Form onSubmit={doNothing}>
+    <Form onSubmit={sendMail}>
       {error ? <FormMessage>{error}</FormMessage> : ''}
       <FormSection1>
         <input
@@ -78,8 +76,7 @@ export default function EmailForm() {
           disabled={loading}
           name="message"
           id="message"
-          // value={values.message}
-          value="Email Form is Temporarily Out of Order"
+          value={values.message}
           onChange={updateValue}
         />
         <button type="submit">{loading ? 'Loading...' : 'Send'}</button>

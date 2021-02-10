@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 // create transport for nodemailer
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST,
-  port: 587,
+  port: 465,
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS,
@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 exports.handler = async (event, context) => {
   const body = JSON.parse(event.body);
-
+  console.log({ body });
   // if mapleSyrup is filled its a bot, return 400 error
   if (body.mapleSyrup) {
     return {
@@ -35,8 +35,8 @@ exports.handler = async (event, context) => {
   }
 
   const info = await transporter.sendMail({
-    from: `${body.name} <${body.email}>`,
-    to: 'jeremy@kmmassage.com',
+    from: body.email,
+    to: 'jeremy@kwmassage.com',
     subject: `${body.subject} | Launch Pad`,
     html: `<p>${body.message}</p>`,
   });
