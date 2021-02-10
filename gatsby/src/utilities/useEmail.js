@@ -10,7 +10,6 @@ export default function useEmail({ values }) {
     setLoading(true);
     setError(null);
 
-    console.log(values);
     const res = await fetch(`${process.env.GATSBY_SERVERLESS_BASE}/sendEmail`, {
       method: 'POST',
       headers: {

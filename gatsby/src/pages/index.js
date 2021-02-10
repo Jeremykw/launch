@@ -4,7 +4,6 @@ import LayoutHome from '../components/LayoutHome';
 import SEO from '../components/SEO';
 
 export default function Home({ data }) {
-  console.log({ data });
   return (
     <LayoutHome bgImage={data.bgImage}>
       <SEO title="Home" />

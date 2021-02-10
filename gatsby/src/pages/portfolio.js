@@ -29,7 +29,6 @@ export default function Portfolio({ data }) {
   const courses = portfolio.filter(
     (post) => post.category.id === '-3b2a8ff3-e0bf-57b9-9531-66e43e6fc0e2'
   );
-  console.log({ courses });
   return (
     <Layout>
       <SEO title="Portfolio" />

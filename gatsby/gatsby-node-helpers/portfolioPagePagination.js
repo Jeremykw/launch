@@ -1,3 +1,1 @@
-export default async function portfolioPagePagination() {
-  console.log('page');
-}
+export default async function portfolioPagePagination() {}

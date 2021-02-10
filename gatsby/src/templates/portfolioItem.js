@@ -58,7 +58,6 @@ const TitleWithLink = (post) => (
 );
 export default function SinglePortfolioItem({ data }) {
   const { post, mediumPosts } = data;
-  console.log({ data });
   return (
     <Layout>
       <SEO title={post.title} />
