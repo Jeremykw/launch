@@ -8,7 +8,7 @@ import Logo from '../images/launchPadLogo.svg';
 const HeadContainer = styled.div`
   display: grid;
   padding-top: 5px;
-  grid-template-columns: 600px 1fr;
+  grid-template-columns: 1fr 1fr;
 `;
 const NavDeskTop = styled.div`
   display: grid;

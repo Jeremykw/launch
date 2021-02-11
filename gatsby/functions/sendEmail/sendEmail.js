@@ -35,7 +35,7 @@ exports.handler = async (event, context) => {
 
   const info = await transporter.sendMail({
     from: body.email,
-    to: 'jeremy@kwmassage.com',
+    to: 'jeremy.kwmassage@gmail.com',
     subject: `${body.subject} | Launch Pad`,
     html: `<p>${body.message}</p>`,
   });
