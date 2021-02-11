@@ -12,7 +12,6 @@ const transporter = nodemailer.createTransport({
 
 exports.handler = async (event, context) => {
   const body = JSON.parse(event.body);
-  console.log({ body });
   // if mapleSyrup is filled its a bot, return 400 error
   if (body.mapleSyrup) {
     return {

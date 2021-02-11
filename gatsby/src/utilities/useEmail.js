@@ -14,8 +14,6 @@ export default function useEmail({ values }) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // eslint-disable-next-line prettier/prettier
-        'Accept': 'application/json',
       },
       body: JSON.stringify(values),
     });
