@@ -11,7 +11,13 @@ export default function About({ data }) {
       <SEO title="About" />
       <ContentPageLayout>
         <h1>{aboutData.title}</h1>
-        <p>{aboutData.body[0].children[0].text}</p>
+        {aboutData.body.map((paragraph, i) => (
+          <p key={`paragraph_${i}`}>
+            {paragraph.children.map((line, j) => (
+              <span key={`text_${j}`}>{line.text}</span>
+            ))}
+          </p>
+        ))}
       </ContentPageLayout>
     </Layout>
   );
