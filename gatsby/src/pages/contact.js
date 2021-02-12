@@ -54,6 +54,14 @@ const ContactInfo = styled.div`
   line-height: 3rem;
   font-size: 2rem;
   background-color: var(--lightGrey);
+  a {
+    text-decoration: none;
+    font-weight: normal;
+    color: var(--grey);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 const Maps = styled.div`
   grid-area: map;
@@ -76,14 +84,12 @@ export default function Contact({ data }) {
       <Container>
         <GreyArea>
           <ContactInfo>
-            {contact.businessName}
-            <br />
-            {contact.street}
-            <br />
             {contact.city}, {contact.province}
             <br />
             {contact.postalCode}
             <br />
+            {contact.phone}
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
           </ContactInfo>
           <Maps>
             <iframe
