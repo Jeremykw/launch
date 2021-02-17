@@ -58,7 +58,7 @@ const TitleWithLink = (post) => (
 );
 
 const ProjectLinkStyles = styled.a`
-  color: var(--blue);
+  color: var(--brightBlue);
   font-weight: bold;
   text-decoration: none;
 
