@@ -9,23 +9,39 @@ const Container = styled.section`
   justify-content: center;
   align-items: top;
   height: 100%;
-  font-weight: bold;
+
   margin: 5vh 10vw 0 10vw;
   color: var(--black);
+  h1 {
+    color: var(--black);
+    margin: 5rem;
+  }
 `;
 
 const CardContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
   height: auto;
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export default function Portfolio({ data }) {
   const portfolio = data.allSanityPost.nodes;
   const projects = portfolio.filter(
-    (post) => post.category.id === '-eefd9223-c192-5906-9804-8369c4216bf5'
+    (post) =>
+      post.category.id === '-eefd9223-c192-5906-9804-8369c4216bf5' &&
+      post.id !== '-57d8e0cf-4083-5a4e-92d5-9ced66f6d621'
   );
+  const launchPad = portfolio.filter(
+    (post) => post.id === '-57d8e0cf-4083-5a4e-92d5-9ced66f6d621'
+  );
+  projects.unshift(launchPad[0]);
   const courses = portfolio.filter(
     (post) => post.category.id === '-3b2a8ff3-e0bf-57b9-9531-66e43e6fc0e2'
   );
@@ -33,13 +49,12 @@ export default function Portfolio({ data }) {
     <Layout>
       <SEO title="Portfolio" />
       <Container>
-        <h1>Projects</h1>
         <CardContainer>
           {projects.map((post) => (
             <Card key={`post_${post.id}`} post={post} />
           ))}
         </CardContainer>
-        <h1>Courser</h1>
+        <h1>Courses</h1>
         <CardContainer>
           {courses.map((post) => (
             <Card key={`post_${post.id}`} post={post} />
@@ -65,7 +80,7 @@ export const query = graphql`
         tagLine
         mainImage {
           asset {
-            fluid(maxWidth: 75) {
+            fluid(maxWidth: 200) {
               ...GatsbySanityImageFluid
             }
           }

@@ -10,7 +10,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 2fr 7fr;
   grid-template-rows: auto 38vh 300px;
-  color: white;
+  color: var(--black);
 
   /* @media (max-width: 1350px) {
     & {
@@ -31,12 +31,12 @@ const Container = styled.div`
   @media (max-width: 550px) {
     & {
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-rows: 0 1fr 1fr;
     }
   }
   @media (max-width: 300px) {
     & {
-      grid-template-rows: 1fr 40vh 2fr;
+      grid-template-rows: 0 40vh 2fr;
     }
   }
   @media (max-width: 250px) {
@@ -57,6 +57,7 @@ const LogoContainer = styled.div`
   }
   @media (max-width: 550px) {
     & {
+      display: none;
       padding: 0;
       justify-content: center;
     }
@@ -86,55 +87,6 @@ const LaunchLogo = styled.img`
     }
   }
 `;
-const Tagline = styled.div`
-  grid-row: 2;
-  grid-column: 2;
-  align-self: center;
-  max-width: 900px;
-  font-size: 4rem;
-  z-index: 9;
-  & ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  @media (max-width: 770px) {
-    & {
-      font-size: 3em;
-      color: var(--black);
-    }
-  }
-  @media (max-width: 770px) and (max-height: 620px) {
-    & {
-      grid-column: 1;
-      grid-row: 3;
-      align-self: center;
-      text-align: right;
-      line-height: 3rem;
-      font-size: 2rem;
-    }
-  }
-  /* @media (max-width: 770px) and (max-height: 400px) {
-      & {
-        font-size: 2em;
-      }
-    } */
-  @media (max-width: 550px) {
-    & {
-      grid-column: 1 / -1;
-      justify-self: center;
-    }
-  }
-  @media (max-width: 300px) {
-    & {
-      font-size: 2.5em;
-    }
-  }
-  @media (max-width: 250px) {
-    & {
-      font-size: 2em;
-    }
-  }
-`;
 const MobileImage = styled(Img)`
   display: none;
   width: 90%;
@@ -158,12 +110,13 @@ const MobileImage = styled(Img)`
   }
   @media (max-width: 550px) {
     & {
+      /* display: none; */
       width: 60vw;
       grid-column: 1 / -1;
       justify-self: center;
     }
   }
-  @media (max-width: 300px) {
+  /* @media (max-width: 300px) {
     & {
       width: 80vw;
     }
@@ -171,7 +124,7 @@ const MobileImage = styled(Img)`
   @media (max-width: 250px) {
     & {
       width: 90vw;
-    }
+    } */
   }
 `;
 
@@ -202,6 +155,62 @@ const AngleRight = styled.div`
     width: 100%;
   }
 `;
+const Tagline = styled.div`
+  grid-row: 2;
+  grid-column: 2;
+  align-self: center;
+  max-width: 900px;
+  font-size: 4rem;
+  z-index: 9;
+  h2 {
+    color: var(--grey);
+  }
+  @media (max-width: 770px) {
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    & {
+      color: var(--black);
+    }
+  }
+  @media (max-width: 770px) and (max-height: 620px) {
+    & {
+      grid-column: 1;
+      grid-row: 3;
+      align-self: center;
+      text-align: right;
+      line-height: 3rem;
+      font-size: 2rem;
+    }
+  }
+  /* @media (max-width: 770px) and (max-height: 400px) {
+        & {
+          font-size: 2em;
+        }
+      } */
+  @media (max-width: 550px) {
+    & {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+  }
+  @media (max-width: 350px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 250px) {
+    & {
+      font-size: 2em;
+    }
+  }
+`;
 export default function Logo(props) {
   const { bgImage } = props;
   return (
@@ -211,17 +220,15 @@ export default function Logo(props) {
         <LaunchLogo src={logo} id="logo" />
       </LogoContainer>
       <Tagline>
-        <ul>
-          <li>Simple Solutions for</li>
-          <li>Modern Business</li>
-        </ul>
+        <h1>Jeremy Bissonnette</h1>
+        <h2>Junior Front End Developer</h2>
       </Tagline>
       <MobileImage fluid={bgImage.childImageSharp.fluid} alt="Launch Pad" />
       <AngleLeft>
-        <img src={angleLeft} alt="" />
+        <img src={angleLeft} alt="Left background angle image" />
       </AngleLeft>
       <AngleRight>
-        <img src={angleRight} alt="" />
+        <img src={angleRight} alt="Right background angle image" />
       </AngleRight>
     </Container>
   );

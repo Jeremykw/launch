@@ -33,7 +33,7 @@ const Image = styled(Img)`
   }
 `;
 
-const Body = styled.p`
+const Body = styled.div`
   padding: 1.5rem;
   overflow: visible;
   grid-area: body;
@@ -43,7 +43,7 @@ const Caption = styled.blockquote`
   grid-area: caption;
 `;
 
-const Title = styled(Link)`
+const TitleStyles = styled.a`
   text-decoration: none;
   color: var(--black);
   &:hover {
@@ -52,10 +52,29 @@ const Title = styled(Link)`
 `;
 
 const TitleWithLink = (post) => (
-  <Title to={post.url ? post.url : ''}>
+  <TitleStyles href={post.url ? post.url : ''}>
     <h1>{post.title}</h1>
-  </Title>
+  </TitleStyles>
 );
+
+const ProjectLinkStyles = styled.a`
+  color: var(--blue);
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+const ProjectLink = (post) => (
+  <>
+    <br />
+    <ProjectLinkStyles href={post.url}>
+      <span>Link to Project</span>
+    </ProjectLinkStyles>
+  </>
+);
+
 export default function SinglePortfolioItem({ data }) {
   const { post, mediumPosts } = data;
   return (
@@ -63,18 +82,30 @@ export default function SinglePortfolioItem({ data }) {
       <SEO title={post.title} />
       <ContentPageLayout>
         {post.url ? TitleWithLink(post) : <h1>{post.title}</h1>}
-        <span>{post.tagLine}</span>
+        <span style={{ color: 'var(--brown)' }}>{post.tagLine}</span>
         <Container>
-          {post.caption && <Caption>{post.caption}</Caption>}
+          {post.caption && (
+            <Caption>
+              {`${post.caption}`}
+              {post.url ? ProjectLink(post) : ''}
+            </Caption>
+          )}
           <Image
             fluid={post.mainImage.asset.fluid}
             imgStyle={{ objectFit: 'contain' }}
             alt={post.title}
             key={post.id}
           />
+
           <Body>
             {post.body ? (
-              post.body.map((content) => <div>{content.children[0].text}</div>)
+              post.body.map((content, i) => (
+                <p key={`content_p_${i}`}>
+                  {content.children.map((text, j) => (
+                    <span key={`content_text_${j}`}>{text.text}</span>
+                  ))}
+                </p>
+              ))
             ) : (
               <MediumPageBody posts={mediumPosts} />
             )}

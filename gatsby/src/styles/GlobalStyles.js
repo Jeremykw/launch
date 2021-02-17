@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   --lightBrown: #7b543d80;
   --yellow: #f9d05e;
   --red: #843200;
-  --grey: #5c5d5e;
+  --grey: #404041;
   --lightGrey: #c4c4c470;
   --clear: #00000000;
 
@@ -40,18 +40,13 @@ body {
 *:after {
     box-sizing: inherit;
 }
-h1,
-h2,
-h3,
-h4 {
-}
+
 h1 {
  font-size: 3rem;
  line-height: 4rem;
 }
 h2 {
   font-size: 2rem;
-
 }
 h3 {
   font-size: 1.75rem;

@@ -10,15 +10,13 @@ import BgAngleSolid from '../images/bgAngleSolid.svg';
 import BgLaunch from '../images/bgLaunch.png';
 
 const LayoutContainer = styled(BackgroundImage)`
-  /* position: absolute;
-  background: url(${BgLaunch}) no-repeat right bottom fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: Geneva;
-  background-color: var(--blue);
-  overflow: hidden; */
+  h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
   width: 100vw;
   height: 100vh;
   @media (max-width: 1440px) {

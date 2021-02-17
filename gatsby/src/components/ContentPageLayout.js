@@ -36,10 +36,6 @@ const ContentArea = styled.div`
     border-left: 5px solid black;
     padding-left: 1rem;
     font-size: 2rem;
-    }
-  }
-  span {
-    color: var(--brown);
   }
 `;
 export default function ContentPageLayout({ children }) {
